@@ -1,0 +1,41 @@
+.header{
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(113, 113, 232);
+    color: whitesmoke;
+}
+
+
+
+.userTable{
+    width:60%;
+    margin: 50px auto;
+    background-color: whitesmoke;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 8px rgba(0,0,0,0.05);
+}
+
+.userTable .table {
+    width:100%;
+    margin-top: 30px ;
+}
+.userTable .table thead th{
+    background-color:darkgreen;
+    color:white
+}
+.userTable .table tbody td{
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle ;
+}
+.actionButtons button {
+    margin: 0 10px;
+}
+
+.noData{
+    margin-top: 20px;
+    text-align: center;
+}
+
