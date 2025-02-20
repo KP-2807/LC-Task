@@ -1,18 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Toaster } from "react-hot-toast";
-import App from './App';
+import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import dotenv from "dotenv";
+import cors from "cors";
+
+import route from "./routes/userRoute.js";
+
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+dotenv.config();
+
+const PORT = process.env.PORT || 7000;
+const MONGOURL = process.env.MONGO_URL;
+
+mongoose.connect(MONGOURL)
+    .then(() => {
+        console.log("DB Connected Successfully");
+        app.listen(PORT, () => {
+            console.log(`Server is running on port : ${PORT}`)
+        });
+    })
+    .catch((er) => console.log(error));
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-    <Toaster />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
+    app.use("/api" , route);
